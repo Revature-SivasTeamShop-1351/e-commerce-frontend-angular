@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col col-md-4 offset-md-4">
+          <a class="btn btn-primary" routerLink="/admin/create">Create</a>
+        </div>
+      </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of allProducts">
+          <th scope="row">{{ product.id }}</th>
+          <td>{{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.unitPrice }}</td>
+          <td>
+            <a class="btn btn-primary" [routerLink]="['/admin/edit', product.id]">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

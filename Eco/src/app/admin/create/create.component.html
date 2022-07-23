@@ -1,0 +1,34 @@
+<div class="container">
+    <legend>Create Item</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input type="text" name="name" [(ngModel)] = "product.name" class="form-control" id="txtName" />
+      </div>
+      <div class="mb-3">
+        <label for="txtPrice" class="form-label">Price</label>
+        <input type="number" name="price" [(ngModel)] = "product.unitPrice" class="form-control" id="txtPrice" />
+      </div>
+      <div class="mb-3">
+        <label for="txtQuantity" class="form-label">Quantity</label>
+        <input type="number" name="quantity" [(ngModel)] = "product.quantity" class="form-control" id="txtQuantity" />
+      </div>
+      <div class="mb-3">
+        <label for="txtQuantity" class="form-label">Quantity</label>
+        <input type="number" name="quantity" [(ngModel)] = "product.quantity" class="form-control" id="txtQuantity" />
+      </div>
+      <div class="mb-3">
+        <label for="txtDescription" class="form-label">Description</label>
+        <input type="text" name="description" [(ngModel)] = "product.description" class="form-control" id="txtDescription" />
+      </div>
+      <div class="mb-3">
+        <label for="txtImageUrl" class="form-label">Image</label>
+        <input type="text" name="imageUrl" [(ngModel)] = "product.imageUrl" class="form-control" id="txtImageUrl" />
+      </div>
+      <div class="mb-3">
+        <label for="txtSku" class="form-label">Sku</label>
+        <input type="text" name="sku" [(ngModel)] = "product.sku" class="form-control" id="txtSku" />
+      </div>
+      <button type="button" (click)="create()" class="btn btn-primary">Create</button>
+    </form>
+  </div>
