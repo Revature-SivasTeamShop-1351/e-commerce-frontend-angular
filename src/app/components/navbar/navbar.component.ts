@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +16,7 @@ export class NavbarComponent implements OnInit{
   cartCount!: number;
   subscription!: Subscription;
 
-  constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
+  constructor(private authService: AuthService, private user: User, private profileService: ProfileService, private route: ActivatedRoute, private router: Router, private productService: ProductService) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -31,4 +33,13 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['login']);
   }
 
+  loadProfileById(){
+    const userId: number = +this.route.snapshot.paramMap.get('id')!;
+    this.profileService.loadProfileById(userId).subscribe(
+      data => {
+        this.user = data;
+      }
+    )
+  
+  }
 }

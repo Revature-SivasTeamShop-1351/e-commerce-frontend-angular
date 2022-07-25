@@ -17,6 +17,10 @@ import { Routes, RouterModule, Router} from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileService } from './services/profile.service';
+import { User } from './models/user';
+
 
 
 
@@ -26,6 +30,8 @@ const routes: Routes = [
   {path: 'category/:id', component: DisplayProductsComponent},
   {path: 'category', component: DisplayProductsComponent},
   {path: 'products', component: DisplayProductsComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},
   {path: '**', redirectTo: '/products', pathMatch: 'full'}
 ];
@@ -42,7 +48,8 @@ const routes: Routes = [
     DisplayProductsComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -52,7 +59,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
