@@ -26,4 +26,5 @@ export class AuthService {
     const payload = {firstName: firstName, lastName: lastName, email: email, password: password};
     return this.http.post<any>(`${this.authUrl}/register`, payload, {headers: environment.headers});
   }
+
 }
