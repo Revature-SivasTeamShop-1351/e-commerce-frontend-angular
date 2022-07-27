@@ -17,10 +17,12 @@ import { Routes, RouterModule, Router} from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
 const routes: Routes = [
+  {path: 'users/:email', component: ProfileComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: DisplayProductsComponent},
   {path: 'category/:id', component: DisplayProductsComponent},
@@ -42,7 +44,8 @@ const routes: Routes = [
     DisplayProductsComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

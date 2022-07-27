@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit{
   subscription!: Subscription;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
-  
+
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
       (cart) => this.cartCount = cart.cartCount
@@ -27,8 +27,12 @@ export class NavbarComponent implements OnInit{
   }
 
   logout() {
+    this.productService.removeLocalStorageMail();
     this.authService.logout();
     this.router.navigate(['login']);
   }
 
+  userSearch() {
+    this.router.navigate(['profile']);
+  }
 }
