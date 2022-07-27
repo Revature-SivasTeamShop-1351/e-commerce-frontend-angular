@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +17,10 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './admin/home/home.component';
+import { CreateComponent } from './admin/create/create.component';
+import { EditComponent } from './admin/edit/edit.component';
+import { CategoryMenuAdminComponent } from './components/category-menu-admin/category-menu-admin.component';
 
 
 
@@ -45,7 +48,11 @@ const routes: Routes = [
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent,
+    CreateComponent,
+    EditComponent,
+    CategoryMenuAdminComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
