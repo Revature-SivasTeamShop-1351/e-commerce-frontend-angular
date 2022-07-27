@@ -1,5 +1,5 @@
 export class Product {
-  id: string;
+  id: number;
   sku: string;
   name: string;
   description: string;
@@ -9,8 +9,8 @@ export class Product {
   quantity: number;
   dateCreated: Date;
   lastUpdated: Date;
-
-  constructor( id: string,
+  category_id: number;
+  constructor( id: number,
                sku: string,
                name: string,
                description: string,
@@ -19,6 +19,7 @@ export class Product {
                active: boolean,
                quantity: number,
                dateCreated: Date,
+               category_id: number,
                lastUpdate: Date){
     this.id = id;
     this.sku = sku;
@@ -30,6 +31,7 @@ export class Product {
     this.quantity = quantity;
     this.dateCreated = dateCreated;
     this.lastUpdated = lastUpdate;
+    this.category_id = category_id;
   }
 
     // id: number;

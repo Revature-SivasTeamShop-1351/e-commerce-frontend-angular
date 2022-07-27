@@ -19,7 +19,7 @@ interface Cart {
 })
 export class ProductService {
 
-  private productUrl: string = "/api/product";
+  private productUrl: string = "/api/products";
   private baseUrl = 'http://localhost:8080/api/products';
   private baseUserUrl = 'http://localhost:8080/api/users';
 
@@ -104,6 +104,15 @@ export class ProductService {
   removeLocalStorageMail() {
     localStorage.removeItem("UEmail");
   }
+  create(payload: Product) {
+    return this.httpClient.post<Product>('http://localhost:8080/api/products', payload);
+  }
+  update(payload: Product){
+    return this.httpClient.put(`http://localhost:8080/api/products/${payload.id}`,payload);
+  }
+  delete(id:number){
+    return this.httpClient.delete<Product>(`http://localhost:8080/api/products/${id}`);
+ }
 }
 
 interface GetResponseProducts{
