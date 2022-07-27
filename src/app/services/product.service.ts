@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../models/product';
+import {User} from '../models/user';
 import { environment } from 'src/environments/environment';
 import {map} from "rxjs/operators";
 import { Routes, RouterModule, Router} from '@angular/router';
@@ -9,10 +10,7 @@ import {ProductCategory} from "../models/product-category";
 
 interface Cart {
   cartCount: number;
-  products: {
-    product: Product,
-    quantity: number
-  }[];
+  products: { product: Product, quantity: number }[];
   totalPrice: number;
 }
 
@@ -23,6 +21,7 @@ export class ProductService {
 
   private productUrl: string = "/api/product";
   private baseUrl = 'http://localhost:8080/api/products';
+  private baseUserUrl = 'http://localhost:8080/api/users';
 
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
@@ -90,6 +89,18 @@ export class ProductService {
     const productUrl = `${this.baseUrl}/${theProductId}`;
     return this.httpClient.get<Product>(productUrl);
   }
+
+  getlocalStorageMail(mails: string){
+    localStorage.setItem("UEmail", mails);
+  }
+
+  searchUser(): Observable<User>{
+
+    const searchUrl = `${this.baseUserUrl}/search/findByEmailContaining?email=${localStorage.getItem("UEmail")}`;
+
+    return this.httpClient.get<User>(searchUrl)
+  }
+
 }
 
 interface GetResponseProducts{
