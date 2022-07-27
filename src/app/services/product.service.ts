@@ -101,6 +101,9 @@ export class ProductService {
     return this.httpClient.get<User>(searchUrl)
   }
 
+  removeLocalStorageMail() {
+    localStorage.removeItem("UEmail");
+  }
 }
 
 interface GetResponseProducts{
