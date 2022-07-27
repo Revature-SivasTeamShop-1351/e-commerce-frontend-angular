@@ -20,7 +20,6 @@ action: string;
   ngOnInit(): void {
 
     this.handleListProducts();
-    this.refreshData();
     
     this.get();
     this.deleteModal = new window.bootstrap.Modal(
@@ -68,14 +67,5 @@ this.allProducts = data;
       //this.currentCategoryName = 'Books';
     }
 }
-refreshData() {
-  this.productService.getProductList(this.currentCategoryId).subscribe(
-    response => this.handleListProducts()
-  );
-  this.route.queryParams.subscribe(
-    (params) => {
-      this.action = params['action'];
-    }
-  );
-}
+
 }
