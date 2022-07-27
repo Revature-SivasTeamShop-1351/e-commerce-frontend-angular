@@ -23,11 +23,7 @@ export class CreateComponent implements OnInit {
     unitPrice: 0,
     description: "",
     imageUrl: "",
-<<<<<<< Updated upstream
     active: true,
-=======
-    active: false,
->>>>>>> Stashed changes
     sku: "",
     dateCreated: new Date(0),
     lastUpdated: new Date(0),
