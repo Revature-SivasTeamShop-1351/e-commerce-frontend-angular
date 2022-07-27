@@ -23,7 +23,11 @@ export class CreateComponent implements OnInit {
     unitPrice: 0,
     description: "",
     imageUrl: "",
+<<<<<<< Updated upstream
+    active: true,
+=======
     active: false,
+>>>>>>> Stashed changes
     sku: "",
     dateCreated: new Date(0),
     lastUpdated: new Date(0),
@@ -42,7 +46,7 @@ export class CreateComponent implements OnInit {
     create(){
   this.productService.create(this.product).subscribe({
     next:(product) =>{
-      this.router.navigate(['admin', 'product'])
+      this.router.navigate(['admin/1', 'product'])
     },
     error:(err) =>{
       console.log(err);

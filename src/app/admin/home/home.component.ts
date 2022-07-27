@@ -14,13 +14,12 @@ allProducts: Product[] = [];
 deleteModal: any;
 idTodelete: number = 0;
 currentCategoryId!: number;
-action: string;
+  action!: string;
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.handleListProducts();
-    this.refreshData();
     
     this.get();
     this.deleteModal = new window.bootstrap.Modal(
@@ -67,15 +66,5 @@ this.allProducts = data;
       this.currentCategoryId = 1;
       //this.currentCategoryName = 'Books';
     }
-}
-refreshData() {
-  this.productService.getProductList(this.currentCategoryId).subscribe(
-    response => this.handleListProducts()
-  );
-  this.route.queryParams.subscribe(
-    (params) => {
-      this.action = params['action'];
-    }
-  );
 }
 }
